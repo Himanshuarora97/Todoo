@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Todoo</string>
+    <string name="YesDelete">Yes,Delete</string>
+    <string name="DeleteItem">Delete Item?</string>
 </resources>
