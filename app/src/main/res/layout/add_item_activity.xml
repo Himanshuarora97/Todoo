@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.design.widget.AppBarLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay">
+
+
+        </android.support.v7.widget.Toolbar>
+
+
+    </android.support.design.widget.AppBarLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <EditText
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:hint="Title"
+            android:inputType="textAutoCorrect|textCapSentences"
+            android:lines="2"
+            android:maxLines="1" />
+
+        <EditText
+            android:id="@+id/content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:gravity="top|left"
+            android:hint="Enter what you want here" />
+
+    </LinearLayout>
+
+    <HorizontalScrollView
+        android:id="@+id/hScroll"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="bottom"
+        android:layout_marginRight="50dp">
+
+        <LinearLayout
+            android:id="@+id/ll"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:background="@color/black"
+            android:visibility="visible">
+
+            <ImageButton
+                android:id="@+id/undo"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginRight="10dp"
+                android:adjustViewBounds="true"
+                android:background="@null"
+                android:src="@drawable/ic_undo_white_24dp"
+                android:tint="@color/white" />
+
+            <ImageButton
+                android:id="@+id/redo"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginRight="10dp"
+                android:adjustViewBounds="true"
+                android:background="@null"
+                android:src="@drawable/ic_redo_white_24dp"
+                android:tint="@color/white" />
+
+            <ImageButton
+                android:id="@+id/label"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginRight="10dp"
+                android:adjustViewBounds="true"
+                android:background="@null"
+                android:src="@drawable/circle"
+                android:tint="@color/white" />
+
+            <ImageButton
+                android:id="@+id/bold"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginRight="10dp"
+                android:adjustViewBounds="true"
+                android:background="@null"
+                android:src="@drawable/ic_format_bold_black_24dp"
+                android:tint="@color/grey_500" />
+
+            <ImageButton
+                android:id="@+id/italic"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginRight="10dp"
+                android:adjustViewBounds="true"
+                android:background="@null"
+                android:src="@drawable/ic_format_italic_black_24dp"
+                android:tint="@color/grey_500" />
+
+            <ImageButton
+                android:id="@+id/underline"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginRight="10dp"
+                android:adjustViewBounds="true"
+                android:background="@null"
+                android:src="@drawable/ic_format_underlined_black_24dp"
+                android:tint="@color/grey_500" />
+
+            <ImageButton
+                android:id="@+id/checkbox"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginRight="10dp"
+                android:adjustViewBounds="true"
+                android:background="@null"
+                android:src="@drawable/ic_check_box_black_24dp"
+                android:tint="@color/grey_500" />
+
+            <ImageButton
+                android:id="@+id/numbullet"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginRight="10dp"
+                android:adjustViewBounds="true"
+                android:background="@null"
+                android:src="@drawable/ic_format_list_numbered_black_24dp"
+                android:tint="@color/grey_500" />
+
+            <ImageButton
+                android:id="@+id/bullet"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginRight="10dp"
+                android:background="@null"
+                android:src="@drawable/ic_format_list_bulleted_black_24dp"
+                android:tint="@color/grey_500" />
+
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/editFab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="16dp"
+        android:backgroundTint="#000"
+        android:src="@drawable/ic_mode_edit_black_24dp"
+        android:tint="#fff"
+        android:visibility="gone"
+        app:borderWidth="0dp" />
+
+    <ImageButton
+        android:id="@+id/arrow"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="bottom|end"
+        android:background="@drawable/border"
+        android:src="@drawable/ic_navigate_next_black_24dp"
+        android:tint="#ff49a79a" />
+</android.support.design.widget.CoordinatorLayout>

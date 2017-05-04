@@ -46,7 +46,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ItemHo
 
     @Override
     public void onBindViewHolder(ItemHolder holder, int position) {
-        String string = mList.get(position).getComment();
+        String string = mList.get(position).getTitle();
         String description = mList.get(position).getContent();
         holder.swipeLayout.setShowMode(SwipeLayout.ShowMode.LayDown);
         holder.swipeLayout.addSwipeListener(new SimpleSwipeListener() {
