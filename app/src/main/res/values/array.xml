@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <array name="mdcolor_400">
+    <array name="colors_400">
         <item name="red_400" type="color">#e84e40</item>
         <item name="pink_400" type="color">#ec407a</item>
         <item name="purple_400" type="color">#ab47bc</item>
@@ -8,7 +8,7 @@
         <item name="indigo_400" type="color">#5c6bc0</item>
         <item name="blue_400" type="color">#738ffe</item>
         <item name="light_blue_400" type="color">#29b6f6</item>
-        <item name="cyan_400" type="color">#26c6da</item>
+        <item name="cyan_400" type="color">#26c6da</item>r
         <item name="teal_400" type="color">#26a69a</item>
         <item name="green_400" type="color">#2baf2b</item>
         <item name="light_green_400" type="color">#9ccc65</item>
@@ -20,7 +20,7 @@
         <item name="grey_400" type="color">#bdbdbd</item>
         <item name="blue_grey_400" type="color">#78909c</item>
     </array>
-    <array name="mdcolor_500">
+    <array name="colors_500">
         <item name="red_500" type="color">#e51c23</item>
         <item name="pink_500" type="color">#e91e63</item>
         <item name="purple_500" type="color">#9c27b0</item>

@@ -5,15 +5,15 @@ import android.os.Parcelable;
 
 public class Model implements Parcelable {
     private long id;
-    private String comment;
+    private String title;
     private String content;
     private String color;
     private int isPasswordProtected;
     private String password;
 
-    public Model(long id, String comment, String content, String color, int isPasswordProtected, String password) {
+    public Model(long id, String title, String content, String color, int isPasswordProtected, String password) {
         this.id = id;
-        this.comment = comment;
+        this.title = title;
         this.content = content;
         this.color = color;
         this.isPasswordProtected = isPasswordProtected;
@@ -45,14 +45,14 @@ public class Model implements Parcelable {
     public static final Creator<Model> CREATOR = new Creator<Model>() {
         @Override
         public Model createFromParcel(Parcel in) {
-            Model comment = new Model();
-            comment.id = in.readLong();
-            comment.comment = in.readString();
-            comment.content = in.readString();
-            comment.color = in.readString();
-            comment.isPasswordProtected = in.readInt();
-            comment.password = in.readString();
-            return comment;
+            Model title = new Model();
+            title.id = in.readLong();
+            title.title = in.readString();
+            title.content = in.readString();
+            title.color = in.readString();
+            title.isPasswordProtected = in.readInt();
+            title.password = in.readString();
+            return title;
         }
 
         @Override
@@ -70,16 +70,16 @@ public class Model implements Parcelable {
     }
 
     public String getComment() {
-        return comment;
+        return title;
     }
 
-    public void setComment(String comment) {
-        this.comment = comment;
+    public void setComment(String title) {
+        this.title = title;
     }
 
     @Override
     public String toString() {
-        return comment;
+        return title;
     }
 
     public String getContent() {
@@ -106,7 +106,7 @@ public class Model implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeLong(id);
-        dest.writeString(comment);
+        dest.writeString(title);
         dest.writeString(content);
         dest.writeString(color);
         dest.writeInt(isPasswordProtected);
