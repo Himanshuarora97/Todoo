@@ -71,7 +71,7 @@ public class DataSource {
     private Model cursorToModel(Cursor cursor) {
         Model model = new Model();
         model.setId(cursor.getLong(0));
-        model.setComment(cursor.getString(1));
+        model.setTitle(cursor.getString(1));
         model.setContent(cursor.getString(2));
         model.setColor(cursor.getString(3));
         model.setIsPasswordProtected(cursor.getInt(4));
@@ -117,7 +117,7 @@ public class DataSource {
     public void updateData(Model model) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(MySQLhelper.TITLE_TEXT, model.getComment());
+        values.put(MySQLhelper.TITLE_TEXT, model.getTitle());
         values.put(MySQLhelper.CONTENT_TEXT, model.getContent());
         values.put(MySQLhelper.COLOR_ID, model.getColor());
         String condition = MySQLhelper.COLUMN_ID + "='" + model.getId() + "'";

@@ -69,11 +69,11 @@ public class Model implements Parcelable {
         this.id = id;
     }
 
-    public String getComment() {
+    public String getTitle() {
         return title;
     }
 
-    public void setComment(String title) {
+    public void setTitle(String title) {
         this.title = title;
     }
 
