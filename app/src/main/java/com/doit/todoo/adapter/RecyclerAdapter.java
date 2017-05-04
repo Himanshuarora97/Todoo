@@ -29,13 +29,24 @@ import java.util.List;
 
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ItemHolder> {
 
+    public interface OnItemClickListener {
+        void onDeleteItem(int delPos);
+
+        void onItemClick(Model model);
+
+        void onLongClick(int pos);
+    }
+
+    private final OnItemClickListener listener;
     Context mContext;
     List<Model> mList;
 
 
-    public RecyclerAdapter(Context context, List<Model> list) {
+    public RecyclerAdapter(Context context, List<Model> list, OnItemClickListener listener) {
         mContext = context;
         mList = list;
+        this.listener = listener;
+
     }
 
     @Override
@@ -48,6 +59,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ItemHo
     public void onBindViewHolder(ItemHolder holder, int position) {
         String string = mList.get(position).getTitle();
         String description = mList.get(position).getContent();
+
+//        Log.e("Testing : " , "String : " + string + "   Description " +description);
         holder.swipeLayout.setShowMode(SwipeLayout.ShowMode.LayDown);
         holder.swipeLayout.addSwipeListener(new SimpleSwipeListener() {
             @Override
@@ -55,7 +68,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ItemHo
                 YoYo.with(Techniques.Tada).duration(500).delay(100).playOn(layout.findViewById(R.id.trash));
             }
         });
-        int color;
+        int color = 0;
         try {
             color = Color.parseColor(mList.get(position).getColor());
         } catch (IllegalArgumentException e) {
@@ -73,8 +86,19 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ItemHo
         holder.imageView.setImageDrawable(myDrawable);
         holder.textView.setText(string);
         holder.descView.setText(description);
+        applyLongClick(holder, position);
     }
 
+    private void applyLongClick(ItemHolder holder, final int position) {
+        holder.imageView.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                listener.onLongClick(position);
+                view.performHapticFeedback(HapticFeedbackConstants.LONG_PRESS);
+                return true;
+            }
+        });
+    }
 
     @Override
     public int getItemCount() {
@@ -82,7 +106,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ItemHo
     }
 
 
-    public class ItemHolder extends RecyclerView.ViewHolder {
+    public class ItemHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private TextView textView, descView;
         private View backView;
         private ImageView imageView, lockImage;
@@ -100,6 +124,21 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ItemHo
             imageView = (ImageView) itemView.findViewById(R.id.imageView);
             textView = (TextView) itemView.findViewById(R.id.textView);
             descView = (TextView) itemView.findViewById(R.id.description);
+            deleteBtn.setOnClickListener(this);
+            frontLayout.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View v) {
+            switch (v.getId()) {
+                case R.id.delete:
+                    listener.onDeleteItem(getAdapterPosition());
+                    break;
+                case R.id.frontLayout:
+                    listener.onItemClick(mList.get(getAdapterPosition()));
+                    break;
+            }
+
         }
     }
 }
